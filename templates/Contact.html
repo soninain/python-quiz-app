@@ -3,21 +3,17 @@
 {% block content %}
 
 <style>
-
-/* ===== PAGE SCOPE ===== */
 .contact-page {
   background: radial-gradient(circle at top left, #0f172a, #020617);
-  padding-top: 20px; /* top gap control */
+  padding-top: 20px;
 }
 
-/* ===== CENTER (NO EXTRA GAP) ===== */
 .contact-page .main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-/* ===== CARD (LOGIN/REGISTER SAME STYLE) ===== */
 .contact-page .card-box {
   width: 100%;
   max-width: 420px;
@@ -36,7 +32,6 @@
   margin-bottom:70px;
 }
 
-/* ===== TITLE ===== */
 .contact-page h4 {
   text-align: center;
   margin-bottom: 5px;
@@ -51,7 +46,6 @@
   font-size: 13px;
 }
 
-/* ===== INPUT ===== */
 .contact-page input,
 .contact-page textarea {
   width: 100%;
@@ -64,13 +58,11 @@
   transition: 0.3s;
 }
 
-/* ===== PLACEHOLDER ===== */
 .contact-page input::placeholder,
 .contact-page textarea::placeholder {
   color: #94a3b8;
 }
 
-/* ===== FOCUS ===== */
 .contact-page input:focus,
 .contact-page textarea:focus {
   outline: none;
@@ -79,7 +71,6 @@
   background: rgba(30,41,59,1);
 }
 
-/* ===== BUTTON ===== */
 .contact-page input[type="submit"] {
   width: 100%;
   border-radius: 10px;
@@ -92,7 +83,6 @@
   transition: 0.3s;
 }
 
-/* ===== BUTTON SHINE ===== */
 .contact-page input[type="submit"]::before {
   content: "";
   position: absolute;
@@ -113,7 +103,6 @@
   box-shadow: 0 0 20px rgba(99,102,241,0.6);
 }
 
-/* ===== ANIMATION ===== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -124,7 +113,6 @@
     transform: translateY(0);
   }
 }
-
 </style>
 
 <div class="container contact-page">
@@ -138,9 +126,7 @@
         <h6>Please fill all entries</h6>
 
         <input type="email" name="email" placeholder="Enter your email" required>
-
         <input type="text" name="name" placeholder="Enter your name" required>
-
         <textarea name="message" rows="3" placeholder="Enter your message" required></textarea>
 
         <input type="submit" value="Send Message">

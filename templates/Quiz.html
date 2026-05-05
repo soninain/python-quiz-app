@@ -1,81 +1,79 @@
-{% extends 'Base.html' %} {% load static %} {% block content %}
+{% extends 'Base.html' %} 
+{% load static %} 
+{% block content %}
 
 <style>
+.quiz-page {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
 
-  /* QUIZ SECTION ONLY (NO BODY, NO NAVBAR IMPACT) */
-  .quiz-page {
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-  }
+.quiz-card {
+  width: 100%;
+  max-width: 850px;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
 
-  .quiz-card {
-    width: 100%;
-    max-width: 850px;
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  }
+.quiz-title {
+  text-align: center;
+  color: #e2e8f0;
+  font-weight: 700;
+  margin-top: 30px;
+}
 
-  .quiz-title {
-    text-align: center;
-    color: #e2e8f0;
-    font-weight: 700;
-    margin-top: 30px;
-  }
+.timer-box {
+  margin-left: 26px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #38bdf8;
+}
 
-  .timer-box {
-    margin-left: 26px;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #38bdf8;
-  }
+p {
+  color: #f1f5f9;
+  font-weight: 600;
+  margin-top: 18px;
+}
 
-  p {
-    color: #f1f5f9;
-    font-weight: 600;
-    margin-top: 18px;
-  }
+input[type="radio"] {
+  accent-color: #38bdf8;
+  transform: scale(1.1);
+  margin-right: 8px;
+}
 
-  input[type="radio"] {
-    accent-color: #38bdf8;
-    transform: scale(1.1);
-    margin-right: 8px;
-  }
+label {
+  color: #cbd5f5;
+  font-size: 14px;
+}
 
-  label {
-    color: #cbd5f5;
-    font-size: 14px;
-  }
+hr {
+  border: none;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 20px 0;
+}
 
-  hr {
-    border: none;
-    height: 1px;
-    background: rgba(255,255,255,0.08);
-    margin: 20px 0;
-  }
+#autoClickButton {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #38bdf8, #6366f1);
+  color: white;
+  font-weight: 700;
+}
 
-  #autoClickButton {
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(45deg, #38bdf8, #6366f1);
-    color: white;
-    font-weight: 700;
-  }
-
-  #autoClickButton:hover {
-    transform: translateY(-2px);
-  }
-
+#autoClickButton:hover {
+  transform: translateY(-2px);
+}
 </style>
 
-<!-- TIMER (navbar unaffected) -->
 <div class="timer-box">
   <span id="displayTime"></span>
 </div>
@@ -83,7 +81,6 @@
 <h4 class="quiz-title">{{course_name}} Quiz</h4>
 
 <div class="quiz-page">
-
   <div class="quiz-card">
 
     <form method="post" action="" id="quiz-form">
@@ -107,7 +104,6 @@
     </form>
 
   </div>
-
 </div>
 
 {{count_time|json_script:"c-t"}}

@@ -3,8 +3,6 @@
 {% block content %}
 
 <style>
-
-/* ===== CARD ===== */
 .card {
   width: 18rem !important;
   border-radius: 16px;
@@ -15,14 +13,12 @@
   transition: all 0.25s ease;
 }
 
-/* simple premium hover (NO overlay issues) */
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
   border-color: #38bdf8;
 }
 
-/* ===== IMAGE ===== */
 .card-img-top {
   height: 180px;
   object-fit: cover;
@@ -33,25 +29,21 @@
   transform: scale(1.05);
 }
 
-/* ===== TITLE ===== */
 .card-title {
   color: #38bdf8;
   font-weight: 600;
 }
 
-/* ===== TEXT ===== */
 .card-text {
   color: #cbd5f5;
   font-size: 13px;
 }
 
-/* ===== QUIZ INFO ===== */
 .quizz-div p {
   color: #94a3b8;
   font-size: 12px;
 }
 
-/* ===== BUTTON ===== */
 #quiz-btn {
   width: 100%;
   border-radius: 8px;
@@ -66,13 +58,11 @@
   box-shadow: 0 5px 15px rgba(99,102,241,0.5);
 }
 
-/* ===== TITLE ===== */
 h4 {
   text-align: center;
   color: #e2e8f0;
   font-weight: 600;
 }
-
 </style>
 
 <h4 class="mt-5">Choose Course</h4>
@@ -86,7 +76,6 @@ h4 {
 
     <div class="card-body">
 
-      <!-- ⚠️ FIX (important bug) -->
       <h5 class="card-title">{{ course.course_name }}</h5>
 
       <div class="quizz-div"> 
