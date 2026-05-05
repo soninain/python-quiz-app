@@ -1,0 +1,156 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Existing CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <title>Quiz-App</title>
+
+    <!-- 🔥 INTERNAL PREMIUM CSS -->
+    <style>
+      /* ===== BODY ===== */
+      body {
+        background: linear-gradient(135deg, #020617, #0f172a);
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      /* ===== SMOOTH SCROLL ===== */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* ===== NAVBAR GLASS EFFECT ===== */
+      .navbar {
+        background: rgba(255,255,255,0.05) !important;
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        transition: 0.3s;
+      }
+
+      .navbar:hover {
+        background: rgba(255,255,255,0.08) !important;
+      }
+
+      /* ===== LINKS ===== */
+      .nav-link {
+        color: #cbd5f5 !important;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      .nav-link:hover {
+        color: #38bdf8 !important;
+      }
+
+      /* underline animation */
+      .nav-link::after {
+        content: "";
+        width: 0%;
+        height: 2px;
+        background: #38bdf8;
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        transition: 0.3s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* ===== MAIN CONTENT WRAPPER ===== */
+      .main-wrapper {
+        min-height: 85vh;
+        padding: 20px;
+      }
+
+      /* ===== GLOBAL CARD LOOK ===== */
+      .card {
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        border: 1px solid rgba(255,255,255,0.08);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      }
+
+      /* ===== BUTTON ===== */
+      .btn-primary {
+        background: linear-gradient(45deg, #38bdf8, #6366f1);
+        border: none;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+
+      .btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 12px rgba(99,102,241,0.6);
+      }
+
+      /* ===== SCROLLBAR ===== */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #020617;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #38bdf8;
+        border-radius: 10px;
+      }
+
+      /* ===== FADE ANIMATION ===== */
+      .main-wrapper,
+      .card,
+      .navbar {
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Navbar -->
+    {% include 'Navbar.html' %}
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      {% block content %} 
+      {% endblock %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>

@@ -1,0 +1,115 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+
+/* ===== CARD ===== */
+.card {
+  width: 18rem !important;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.04) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.25s ease;
+}
+
+/* simple premium hover (NO overlay issues) */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  border-color: #38bdf8;
+}
+
+/* ===== IMAGE ===== */
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+  transition: 0.3s;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* ===== TITLE ===== */
+.card-title {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* ===== TEXT ===== */
+.card-text {
+  color: #cbd5f5;
+  font-size: 13px;
+}
+
+/* ===== QUIZ INFO ===== */
+.quizz-div p {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+/* ===== BUTTON ===== */
+#quiz-btn {
+  width: 100%;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #38bdf8, #6366f1);
+  border: none;
+  transition: 0.25s;
+  margin-bottom:30px;
+}
+
+#quiz-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(99,102,241,0.5);
+}
+
+/* ===== TITLE ===== */
+h4 {
+  text-align: center;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+</style>
+
+<h4 class="mt-5">Choose Course</h4>
+
+<div class="card-div1">
+{% for course in all_course %}
+
+<div class="card mt-5 mx-3">
+
+    <img src="{{ course.course_image.url }}" class="card-img-top" alt="...">
+
+    <div class="card-body">
+
+      <!-- ⚠️ FIX (important bug) -->
+      <h5 class="card-title">{{ course.course_name }}</h5>
+
+      <div class="quizz-div"> 
+        <p class="card-text">
+          {{ course.course_des }}
+          <br>
+          You have 5 questions, and you have a quiz time limit of 5 minutes.
+        </p>
+
+        <p>Duration: 5 min</p>
+
+        <a id="quiz-btn" href="{% url 'submit_quiz' course.id %}" class="btn btn-primary">
+          Start Quiz
+        </a>
+      </div>
+
+    </div>
+
+</div>
+
+{% endfor %}
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}

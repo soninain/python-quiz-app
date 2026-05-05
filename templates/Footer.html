@@ -1,0 +1,59 @@
+<style>
+/* ===== PREMIUM FOOTER ===== */
+footer {
+  margin-top: 50px;
+  padding: 25px 10px;
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* text */
+footer p {
+  color: #cbd5f5;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* link */
+footer a {
+  color: #38bdf8;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* underline animation */
+footer a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #38bdf8;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  transition: 0.3s;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+footer a:hover {
+  color: #6366f1;
+}
+
+/* small hover glow */
+footer:hover {
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+</style>
+
+<footer>
+  <p>
+    Author: xyz <br>
+    <a href="https://www.google.com/">xyz@example.com</a>
+  </p>
+</footer>

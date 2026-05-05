@@ -1,0 +1,71 @@
+{% extends 'Base.html' %} {% load static %} {% block content %}
+<style>
+  .stat {
+    padding-top:20px;
+    padding-bottom:20px;
+    height: 30px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 20px;
+  }
+  .stat-part-left {
+    height: 20px;
+    width: 300px;
+  }
+  .btn2 {
+    height: 40px;
+    width: 300px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #6366f1, #38bdf8);
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+  .container .container-right {
+    height: unset;
+    justify-content: center;
+    gap: 30px;
+}
+</style>
+
+<body>
+  <div class="container">
+    <div class="container-left">
+      <div class="title title-left">Your Result</div>
+      <div class="circle">
+        <div class="circle-score">{{score}}</div>
+        <div class="circle-out-of">of {{all_ques}}</div>
+      </div>
+      <div class="container-left-bottom">
+        <div class="container-left-bottom-compliment">Great</div>
+        <div class="container-left-bottom-description">
+          <p>
+            You scored higher than 15% of the people who have taken these tests.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-right-box"></div>
+    <div class="container-right">
+      <b class="title-right">Summary</b>
+
+      <div class="stat">
+        <div class="stat-part-left">Total Question</div>
+        <div class="stat-part-right">{{total_ques}}</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-part-left">Correct Answer</div>
+        <div class="stat-part-right">{{correct_answer}}</div>
+      </div>
+
+      <!-- CONTINUE BUTTON -->
+      <button class="btn2" onclick="window.location.href='{% url 'home' %}'">
+        Continue
+      </button>
+    </div>
+  </div>
+</body>
+{% endblock %}
