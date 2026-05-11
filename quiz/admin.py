@@ -3,20 +3,19 @@ from .models import *
 
 # Register your models here.
 
+
 class QuestionAdmin(admin.ModelAdmin):
-    list_display =("id","question", 'course')
+    list_display = ("id", "question", "course")
     search_fields = ("question",)
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display =("id","name", 'email','message')
+    list_display = ("id", "name", "email", "message")
     search_fields = ("name",)
-admin.site.register(ContactForm,ContactAdmin)
+
+
+admin.site.register(ContactForm, ContactAdmin)
 
 admin.site.register(UserInfo)
 admin.site.register(Course)
-admin.site.register(Questions,QuestionAdmin)
-
-
-
-
+admin.site.register(Questions, QuestionAdmin)

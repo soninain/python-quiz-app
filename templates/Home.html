@@ -3,6 +3,142 @@
 {% block content %}
 
 <style>
+
+body{
+    background: #020617;
+    overflow-x: hidden;
+}
+
+/* HERO SECTION */
+
+.hero-section{
+    width:100%;
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:60px 20px;
+    background:
+    radial-gradient(circle at top left,#1e293b 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#312e81 0%,transparent 35%),
+    #020617;
+}
+
+.hero-section h1{
+    font-size:60px;
+    font-weight:800;
+    color:white;
+    line-height:1.2;
+}
+
+.hero-section h1 span{
+    background: linear-gradient(45deg,#38bdf8,#6366f1);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero-section p{
+    max-width:750px;
+    margin-top:20px;
+    color:#94a3b8;
+    font-size:18px;
+    line-height:30px;
+}
+
+.hero-btns{
+    margin-top:35px;
+}
+
+.hero-btns a{
+    text-decoration:none;
+    padding:14px 30px;
+    border-radius:12px;
+    margin:10px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.start-btn{
+    background:linear-gradient(45deg,#38bdf8,#6366f1);
+    color:white;
+}
+
+.start-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(99,102,241,0.5);
+    color:white;
+}
+
+.learn-btn{
+    border:1px solid rgba(255,255,255,0.2);
+    color:white;
+}
+
+.learn-btn:hover{
+    background:rgba(255,255,255,0.08);
+    color:white;
+}
+
+/* STATS */
+
+.stats-section{
+    padding:80px 20px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stats-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    backdrop-filter: blur(10px);
+    transition:0.3s;
+}
+
+.stats-card:hover{
+    transform:translateY(-5px);
+    border-color:#38bdf8;
+}
+
+.stats-card h2{
+    color:#38bdf8;
+    font-size:42px;
+    font-weight:700;
+}
+
+.stats-card p{
+    color:#94a3b8;
+    margin-top:10px;
+}
+
+/* COURSES */
+
+.course-section{
+    padding:60px 20px 100px;
+}
+
+.section-title{
+    text-align:center;
+    color:white;
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:60px;
+}
+
+.card-div1{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
 .card {
   width: 18rem !important;
   border-radius: 16px;
@@ -63,41 +199,217 @@ h4 {
   color: #e2e8f0;
   font-weight: 600;
 }
+
+/* FEATURES */
+
+.features-section{
+    width:100%;
+    padding:80px 20px;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:35px 25px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-6px);
+    border-color:#38bdf8;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.feature-card h4{
+    color:#38bdf8;
+    margin-top:15px;
+}
+
+.feature-card p{
+    color:#94a3b8;
+    font-size:14px;
+    line-height:25px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.hero-section h1{
+    font-size:38px;
+}
+
+.hero-section p{
+    font-size:15px;
+    line-height:26px;
+}
+
+.section-title{
+    font-size:30px;
+}
+
+}
+
 </style>
 
-<h4 class="mt-5">Choose Course</h4>
 
-<div class="card-div1">
-{% for course in all_course %}
+<!-- HERO SECTION -->
 
-<div class="card mt-5 mx-3">
+<section class="hero-section">
 
-    <img src="{{ course.course_image.url }}" class="card-img-top" alt="...">
+    <h1>
+        Upgrade Your Skills With <span>Interactive Quiz</span>
+    </h1>
 
-    <div class="card-body">
+    <p>
+        Test your knowledge, improve your problem-solving abilities, and challenge yourself with our modern online quiz platform.
+        Explore multiple courses, practice real questions, and track your learning journey easily.
+    </p>
 
-      <h5 class="card-title">{{ course.course_name }}</h5>
+    <div class="hero-btns">
 
-      <div class="quizz-div"> 
-        <p class="card-text">
-          {{ course.course_des }}
-          <br>
-          You have 5 questions, and you have a quiz time limit of 5 minutes.
-        </p>
-
-        <p>Duration: 5 min</p>
-
-        <a id="quiz-btn" href="{% url 'submit_quiz' course.id %}" class="btn btn-primary">
-          Start Quiz
+        <a href="#courses" class="start-btn">
+            Start Learning
         </a>
-      </div>
+
+        <a href="#features" class="learn-btn">
+            Explore Features
+        </a>
 
     </div>
 
-</div>
+</section>
 
-{% endfor %}
-</div>
+
+<!-- STATS -->
+
+<section class="stats-section">
+
+    <div class="stats-grid">
+
+        <div class="stats-card">
+            <h2>100+</h2>
+            <p>Quiz Questions</p>
+        </div>
+
+        <div class="stats-card">
+            <h2>10+</h2>
+            <p>Popular Courses</p>
+        </div>
+
+        <div class="stats-card">
+            <h2>5 Min</h2>
+            <p>Quick Challenge Tests</p>
+        </div>
+
+        <div class="stats-card">
+            <h2>24/7</h2>
+            <p>Learning Access</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COURSES -->
+
+<section class="course-section" id="courses">
+
+    <h2 class="section-title">
+        Choose Your Course
+    </h2>
+
+    <div class="card-div1">
+
+    {% for course in all_course %}
+
+    <div class="card mt-5 mx-3">
+
+        <img src="{{ course.course_image.url }}" class="card-img-top" alt="...">
+
+        <div class="card-body">
+
+          <h5 class="card-title">{{ course.course_name }}</h5>
+
+          <div class="quizz-div"> 
+
+            <p class="card-text">
+              {{ course.course_des }}
+              <br>
+              You have 5 questions, and you have a quiz time limit of 5 minutes.
+            </p>
+
+            <p>Duration: 5 min</p>
+
+            <a id="quiz-btn" href="{% url 'submit_quiz' course.id %}" class="btn btn-primary">
+              Start Quiz
+            </a>
+
+          </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features-section" id="features">
+
+    <h2 class="section-title">
+        Why Choose Our Quiz Platform?
+    </h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <h4>Interactive Learning</h4>
+            <p>
+                Learn through engaging quizzes designed to improve your practical and theoretical knowledge.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h4>Time Based Tests</h4>
+            <p>
+                Practice with real-time quiz challenges and improve your speed and accuracy.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h4>Multiple Courses</h4>
+            <p>
+                Access different technical and programming courses from one platform.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <h4>Track Progress</h4>
+            <p>
+                Analyze your performance and identify areas where you need improvement.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
 
 {% include 'Footer.html' %}
 
